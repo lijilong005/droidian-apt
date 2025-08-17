@@ -16,15 +16,40 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # 新增步骤：检查packages目录是否存在且包含.deb文件
+      - name: Check packages directory
+        run: |
+          if [ ! -d "packages" ]; then
+            echo "Error: packages directory not found"
+            exit 1
+          fi
+          
+          deb_count=$(find packages -name "*.deb" | wc -l)
+          if [ $deb_count -eq 0 ]; then
+            echo "Error: No .deb files found in packages directory"
+            exit 1
+          fi
+          
+          echo "Found $deb_count .deb packages to process"
+
       - name: Import GPG key and setup gpg
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
+          # 创建gnupg目录并设置权限
+          mkdir -p ~/.gnupg
+          chmod 700 ~/.gnupg
+          
+          # 导入私钥
           echo "$GPG_PRIVATE_KEY" | gpg --import --batch
+          
+          # 配置gpg
           echo "allow-preset-passphrase" > ~/.gnupg/gpg-agent.conf
           echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
           echo "no-tty" >> ~/.gnupg/gpg.conf
+          
+          # 重新加载gpg代理
           gpg-connect-agent reloadagent /bye
 
       - name: Generate Packages and Release files
@@ -36,10 +61,16 @@ jobs:
           USER: ${{github.repository_owner}}
           REPO: ${{github.event.repository.name}}
         run: |
+          # 创建必要的目录结构
           mkdir -p public/dists/stable/main/binary-arm64
-          dpkg-scanpackages --arch arm64 packages > public/dists/stable/main/binary-arm64/Packages
+          
+          # 生成Packages文件（添加-v参数用于调试）
+          dpkg-scanpackages -v --arch arm64 packages > public/dists/stable/main/binary-arm64/Packages
+          
+          # 生成压缩版本
           gzip -k -f public/dists/stable/main/binary-arm64/Packages
           
+          # 生成Release文件
           cd public/dists/stable
           
           cat << EOF > Release
@@ -50,16 +81,22 @@ jobs:
           Version: 1.0
           Architectures: arm64
           Components: main
-          Description: Packages 
+          Description: Droidian Packages Repository
           EOF
           
+          # 添加发布信息
           apt-ftparchive release . >> Release
           
+          # 签名Release文件
           echo "$GPG_PASSPHRASE" | gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 --default-key $GPG_KEY_ID --clearsign -o InRelease Release
           echo "$GPG_PASSPHRASE" | gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 --default-key $GPG_KEY_ID -abs -o Release.gpg Release
 
       - name: Move packages directory to public
-        run: mv packages public/packages
+        run: |
+          # 确保public目录存在
+          mkdir -p public
+          # 移动packages目录
+          mv packages public/packages
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
