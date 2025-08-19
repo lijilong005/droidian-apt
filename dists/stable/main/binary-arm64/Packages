@@ -1,0 +1,139 @@
+Package: adaptation-oppo-pecm30
+Version: 0.0.0+git20250819002010.ae3bc84.bookworm
+Architecture: arm64
+Maintainer: lijilong005 <lijilong005@qq.com>
+Installed-Size: 9
+Depends: adaptation-hybris-api32-phone, adaptation-oppo-pecm30-configs (= 0.0.0+git20250819002010.ae3bc84.bookworm)
+Filename: packages/adaptation-oppo-pecm30_0.0.0+git20250819002010.ae3bc84.bookworm_arm64.deb
+Size: 2112
+MD5sum: cfa54aaded96a7b50a5be80e508d3727
+SHA1: 425540dabd4a4877db19a9e29044045f63d6e85c
+SHA256: d378ebebef90da9a717f4541842060b5e550614fbdf7e7b145a64b98fe42b1e2
+Section: metapackages
+Priority: optional
+Description: Community adaptation for oppo-pecm30 - metapackage
+
+Package: adaptation-oppo-pecm30-configs
+Source: adaptation-oppo-pecm30
+Version: 0.0.0+git20250819002010.ae3bc84.bookworm
+Architecture: arm64
+Maintainer: lijilong005 <lijilong005@qq.com>
+Installed-Size: 47
+Filename: packages/adaptation-oppo-pecm30-configs_0.0.0+git20250819002010.ae3bc84.bookworm_arm64.deb
+Size: 16180
+MD5sum: ffd6c90f0104576f3974301186c4d182
+SHA1: 6b9f46e57710408c4ee44ce79876fd37099615a5
+SHA256: 6f7e399b62ee5328632558679bdfd9682952f6d67978a97916fbc6fb8a964740
+Section: metapackages
+Priority: optional
+Description: Community adaptation for oppo-pecm30 - adaptation configurations
+
+Package: linux-bootimage-4.14.186-oppo-pecm30
+Source: linux-android-oppo-pecm30
+Version: 0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian
+Architecture: arm64
+Maintainer: Droidian porters <info@droidian.org>
+Installed-Size: 80965
+Pre-Depends: flash-bootimage (>= 4)
+Depends: linux-image-4.14.186-oppo-pecm30 (= 0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian)
+Filename: packages/linux-bootimage-4.14.186-oppo-pecm30_0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian_arm64.deb
+Size: 81485356
+MD5sum: ae93a6350b062e72e20dc15f68e57501
+SHA1: c136d73c3ad4c56e2a64799952e5cc91671ee24b
+SHA256: 6957cadab7b26e5826da5ac940c84cbf0662868c09bcf36ed2fdd27aa6d67ae5
+Section: kernel
+Priority: optional
+Description: Linux kernel for oppo pecm30 - Android Boot Image
+ This package contains the Linux kernel for the oppo pecm30 device.
+ .
+ Note: This package ships an Android Boot Image bundled with Halium's
+ initramfs.
+
+Package: linux-bootimage-oppo-pecm30
+Source: linux-android-oppo-pecm30
+Version: 0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian
+Architecture: arm64
+Maintainer: Droidian porters <info@droidian.org>
+Installed-Size: 7
+Depends: linux-bootimage-4.14.186-oppo-pecm30 (= 0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian)
+Filename: packages/linux-bootimage-oppo-pecm30_0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian_arm64.deb
+Size: 1468
+MD5sum: 4f37cd5708dc13e061fdf040c6f3848b
+SHA1: fa24c6e7177e399d2c0f39cf8494949cf0f14cb3
+SHA256: 4ba0f15af2de6e4199e0834b7c4f886cad43e404e201d8f3cf17059892bec7c9
+Section: kernel
+Priority: optional
+Description: Linux kernel for oppo pecm30 - Android Boot Image  (latest)
+ This package depends to the latest kernel bootimage available for the oppo pecm30.
+
+Package: linux-headers-4.14.186-oppo-pecm30
+Source: linux-android-oppo-pecm30
+Version: 0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian
+Architecture: arm64
+Maintainer: Droidian porters <info@droidian.org>
+Installed-Size: 126958
+Depends: linux-image-4.14.186-oppo-pecm30 (= 0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian)
+Filename: packages/linux-headers-4.14.186-oppo-pecm30_0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian_arm64.deb
+Size: 12978240
+MD5sum: 51c1ef123eff737b89f96c27f007e48d
+SHA1: 22e3ae4854b8da826f4e167da798c7c6c86a8007
+SHA256: 67580c2c183084bdcbe487c2aa104dec6f3f9742b223cc8128627f33948af4a4
+Section: kernel
+Priority: optional
+Description: Linux kernel for oppo pecm30 - Headers
+ This package contains the Linux kernel headers for the oppo pecm30 device.
+
+Package: linux-headers-oppo-pecm30
+Source: linux-android-oppo-pecm30
+Version: 0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian
+Architecture: arm64
+Maintainer: Droidian porters <info@droidian.org>
+Installed-Size: 7
+Depends: linux-headers-4.14.186-oppo-pecm30 (= 0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian)
+Filename: packages/linux-headers-oppo-pecm30_0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian_arm64.deb
+Size: 1452
+MD5sum: c106bb4a9b898a2f5a185abcdc819674
+SHA1: 4b4fabca9738cac133f942249939885936e8a08b
+SHA256: 7ee02ad45c62b9941b6118650ed351f39239791da05dcb2a8b7cd75bf3cbffb9
+Section: kernel
+Priority: optional
+Description: Linux kernel for oppo pecm30 - Headers (latest)
+ This package depends to the latest kernel headers available for the oppo pecm30.
+
+Package: linux-image-4.14.186-oppo-pecm30
+Source: linux-android-oppo-pecm30
+Version: 0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian
+Architecture: arm64
+Maintainer: Droidian porters <info@droidian.org>
+Installed-Size: 31947
+Filename: packages/linux-image-4.14.186-oppo-pecm30_0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian_arm64.deb
+Size: 25402712
+MD5sum: 2bc342f524625f9ea106bc43fb647632
+SHA1: ebdb39e375b6b548e26813445e33a5878349cd66
+SHA256: 189f77f1e8133da05826519bbe41adf6c861cd32cb780f1ad45b112e820c7b11
+Section: kernel
+Priority: optional
+Description: Linux kernel for oppo pecm30
+ This package contains the Linux kernel for the oppo pecm30 device.
+ .
+ Note: This package only ships the kernel image and modules, you should probably
+ look at the linux-bootimage-4.14.186-oppo-pecm30 package for a bootimage suitable
+ for Android boot loaders.
+
+Package: linux-image-oppo-pecm30
+Source: linux-android-oppo-pecm30
+Version: 0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian
+Architecture: arm64
+Maintainer: Droidian porters <info@droidian.org>
+Installed-Size: 7
+Depends: linux-image-4.14.186-oppo-pecm30 (= 0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian)
+Filename: packages/linux-image-oppo-pecm30_0.0.0+git20250303124017.0322de2.droidian+git20250818143953.7f80d8e.droidian_arm64.deb
+Size: 1444
+MD5sum: 5e03177b648f442a9fa25efe666c4f4e
+SHA1: 7469b44c6b28641832caa17636ecfc1c4358355f
+SHA256: a524c50bc539f81163d55a4b7ed4632774aadc92df630239b38b8bd9929f1910
+Section: kernel
+Priority: optional
+Description: Linux kernel for oppo pecm30 (latest)
+ This package depends to the latest kernel image available for the oppo pecm30.
+
